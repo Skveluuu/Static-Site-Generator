@@ -1,9 +1,14 @@
 
 
 from textnode import TextNode,TextType
+from htmlnode import HTMLNode
 
 def main():
-    print(TextNode("YUH",TextType.BOLD_TEXT,"www.surya.com"))
+    props1 = {
+    "href": "https://www.google.com",
+    "target": "_blank",
+}
+    print(HTMLNode(props=props1))
 
 
     

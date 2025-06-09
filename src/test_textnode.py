@@ -1,6 +1,7 @@
 import unittest
 
 from textnode import TextNode, TextType
+from htmlnode import HTMLNode
 
 
 class TestTextNode(unittest.TestCase):
@@ -19,6 +20,15 @@ class TestTextNode(unittest.TestCase):
         node6 = TextNode("This is a text node", TextType.NORMAL,url="www.surya2.com")
         self.assertNotEqual(node5,node6)
 
+class TestHTMLNode(unittest.TestCase):
+    def test_props_to_html(self):
+        props1 = {
+    "href": "https://www.google.com",
+    "target": "_blank",
+}
+        testing_html_node = HTMLNode(props=props1)
+        result = testing_html_node.props_to_html()
+        self.assertEqual(result,' href="https://www.google.com" target="_blank"')
 
 if __name__ == "__main__":
     unittest.main()
