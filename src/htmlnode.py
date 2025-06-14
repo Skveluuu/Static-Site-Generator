@@ -36,5 +36,18 @@ class LeafNode(HTMLNode):
 class ParentNode(HTMLNode):
     def __init__(self,tag,children,props=None):
         super().__init__(tag=tag, children=children, props=props,value=None)
+    def to_html(self):
+        if self.tag ==None:
+            raise ValueError
+        if self.children ==None:
+            raise ValueError("noChildren")
+        children_html_list = [child.to_html() for child in self.children]
+        final_html_string = f"<{self.tag}{self.props_to_html()}>"+f"{"".join(children_html_list)}"+"</{self.tag}>"
+        return final_html_string
+
+        
+        
+        
+
 
 
